@@ -12,10 +12,12 @@ public class DataGenerator {
 	
 	public String generate(Number bound) {
 		NumberGenerator numberGenerator = new NumberGenerator();
-		String number = String.valueOf(numberGenerator.generate(bound.intValue()));
+		String number = String.valueOf(numberGenerator
+											.generate(bound.intValue()));
 		while(number.length() + data.length() < FileAction.MAX_SIZE_OF_DATA) {
 			data.append(number + "\n");
-			number = String.valueOf(numberGenerator.generate(bound.intValue()));
+			number = String.valueOf(numberGenerator
+											.generate(bound.intValue()));
 		}
 		return data.toString();
 	}

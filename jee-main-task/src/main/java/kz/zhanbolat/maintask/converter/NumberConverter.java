@@ -14,7 +14,8 @@ public class NumberConverter {
 		return parsedNumbers;
 	}
 	
-	public static BigDecimal parseIntoNumber(String number) throws NumberFormatException {
+	public static BigDecimal parseIntoNumber(String number) 
+											throws NumberFormatException {
 		if (!NumberValidator.getInstance().isNumber(number)) {
 			throw new NumberFormatException();
 		}

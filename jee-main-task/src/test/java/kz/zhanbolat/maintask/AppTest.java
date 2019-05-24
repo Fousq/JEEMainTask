@@ -21,14 +21,25 @@ public class AppTest {
     
     private File file;
 
-    @Test
+	@Test
+	public void getResourceTest() {
+		System.out.println("test");
+		System.out.println(getClass().getClassLoader()
+										.getResource("LoadingTestFile.txt")
+											.getFile());
+	}
+
+	@Test
 	public void testLoadData() {
-        file = new File(getClass().getClassLoader().getResource("LoadingTestFile.txt").getFile());
+		file = new File(getClass().getClassLoader()
+										.getResource("LoadingTestFile.txt")
+											.getFile());
 		char data[] = FileAction.getInstance().loadData(file.getPath());
 		String string = new String(data);
 		System.out.println(string);
 		System.out.println("String length: " + string.length());
-		System.out.println("Expected string length: " + "HELLO, WORLD!".length());
+		System.out.println("Expected string length: "
+							+ "HELLO, WORLD!".length());
 		assertEquals("HELLO, WORLD!", string);
 	}
 	
@@ -39,13 +50,17 @@ public class AppTest {
 			data[i] = 'a';
 		}
 		System.out.println(data);
-		file = new File(getClass().getClassLoader().getResource("WritingTestFile.txt").getFile());
+		file = new File(getClass().getClassLoader()
+										.getResource("WritingTestFile.txt")
+											.getFile());
 		FileAction.getInstance().writeData(file, String.copyValueOf(data));
 	}
 	
 	@Test
 	public void loadDataShouldThrowMemoryAllocationException() {
-        file = new File(getClass().getClassLoader().getResource("WritingTestFile.txt").getFile());
+		file = new File(getClass().getClassLoader()
+										.getResource("WritingTestFile.txt")
+											.getFile());
 		FileAction.getInstance().loadData(file.getPath());
 	}
 	
@@ -88,25 +103,30 @@ public class AppTest {
 		String[] numbers = new String[] {"312312413214", "13214141254123"};
 		BigDecimal[] parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
 		for (int i = 0; i < parsedNumbers.length; i++) {
-			assertEquals(NumberConverter.parseIntoNumber(numbers[i]), parsedNumbers[i]);
+			assertEquals(NumberConverter.parseIntoNumber(numbers[i]),
+													 	 parsedNumbers[i]);
 		}
 		numbers = new String[] {"124.1231412425124", "1231.412512412314"};
 		parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
 		for (int i = 0; i < parsedNumbers.length; i++) {
-			assertEquals(NumberConverter.parseIntoNumber(numbers[i]), parsedNumbers[i]);
+			assertEquals(NumberConverter.parseIntoNumber(numbers[i]),
+														 parsedNumbers[i]);
 		}
 		numbers = new String[] {"124125135324", "12413.413524335424"};
 		parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
 		for (int i = 0; i < parsedNumbers.length; i++) {
-			assertEquals(NumberConverter.parseIntoNumber(numbers[i]), parsedNumbers[i]);
+			assertEquals(NumberConverter.parseIntoNumber(numbers[i]),
+														 parsedNumbers[i]);
 		}
 	}
 	
 	@Test
 	public void testCalculateSum() {
-		String numbers[] = new String[] {"121414154" + Integer.MAX_VALUE, "2.235154325234"};
+		String numbers[] = new String[] {"121414154" + Integer.MAX_VALUE,
+										 "2.235154325234"};
 		BigDecimal[] parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
-		BigDecimal sum = NumbersAction.getInstance().calculateSum(parsedNumbers);
+		BigDecimal sum = NumbersAction.getInstance()
+											.calculateSum(parsedNumbers);
 		System.out.println("Sum: " + sum);
 	}
 	
@@ -114,7 +134,8 @@ public class AppTest {
 	public void testCalculatAvg() {
 		String numbers[] = new String[] {"1", "1"};
 		BigDecimal[] parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
-		BigDecimal avg = NumbersAction.getInstance().calculateAvg(parsedNumbers);
+		BigDecimal avg = NumbersAction.getInstance()
+											.calculateAvg(parsedNumbers);
 		System.out.println("Avg: " + avg);
 	}
 	

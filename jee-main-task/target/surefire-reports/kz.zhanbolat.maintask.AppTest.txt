@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: kz.zhanbolat.maintask.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in kz.zhanbolat.maintask.AppTest
+Tests run: 11, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.058 s <<< FAILURE! - in kz.zhanbolat.maintask.AppTest
+testLoadData(kz.zhanbolat.maintask.AppTest)  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.NullPointerException
+	at kz.zhanbolat.maintask.AppTest.testLoadData(AppTest.java:36)
+
+testWriteData(kz.zhanbolat.maintask.AppTest)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NullPointerException
+	at kz.zhanbolat.maintask.AppTest.testWriteData(AppTest.java:55)
+
+loadDataShouldThrowMemoryAllocationException(kz.zhanbolat.maintask.AppTest)  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.NullPointerException
+	at kz.zhanbolat.maintask.AppTest.loadDataShouldThrowMemoryAllocationException(AppTest.java:63)
+

@@ -14,7 +14,8 @@ import kz.zhanbolat.maintask.action.NumbersAction;
 
 public class App {
     public static void main(String args[]) {
-		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader bf = new BufferedReader(
+										new InputStreamReader(System.in));
 		String bound = null;
 		try {
 			System.out.print("Enter the bound: ");
@@ -22,12 +23,13 @@ public class App {
 		} catch (IOException e) {
 			e.printStackTrace();
         }
-        File file = new File(getClass().getClassLoader().getResource("MainFile.txt").getFile()); 
+		File file = new File(App.class.getClassLoader()
+											.getResource("MainFile.txt")
+												.getFile());
 		FileAction.getInstance().writeData(
 				file, 
 				new DataGenerator().generate(Integer.parseInt(bound)));
-		char[] data = FileAction.getInstance()
-						.loadData("..\\JEEMainTask\\data\\Untitled 3.txt");
+		char[] data = FileAction.getInstance().loadData(file.getPath());
 		String loadedData = String.valueOf(data);
 		String[] splitedData = loadedData.split("[\n ,]");
 		BigDecimal[] numbers = NumberConverter.parseIntoNumbers(splitedData);

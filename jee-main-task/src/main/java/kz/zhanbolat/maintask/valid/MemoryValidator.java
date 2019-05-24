@@ -20,7 +20,7 @@ public class MemoryValidator {
 			throws MemoryAllocationException {
 		if (size > FileAction.MAX_SIZE_OF_DATA) {
 			throw new 
-				MemoryAllocationException("Not enough memory to store data"); 
+				MemoryAllocationException("Not enough memory to store data");
 		}
 		return true;
 	}

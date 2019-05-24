@@ -15,9 +15,9 @@ public class NumberValidator {
 	
 	public boolean isNumber(String number) {
 		for (char character : number.toCharArray()) {
-			if ( !(character == '.' || Character.isDigit(character) 
-					|| character == 'E' || character == '-' 
-					|| character == '+') ) {
+			if (!(character == '.' || Character.isDigit(character)
+					|| character == 'E' || character == '-'  
+					|| character == '+')) {
 				return false;
 			}
 		}
