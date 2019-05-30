@@ -7,12 +7,15 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
+import org.apache.log4j.Logger;
+
 import kz.zhanbolat.maintask.action.FileAction;
 import kz.zhanbolat.maintask.converter.NumberConverter;
 import kz.zhanbolat.maintask.generator.DataGenerator;
 import kz.zhanbolat.maintask.action.NumbersAction;
 
 public class App {
+	static Logger logger = Logger.getLogger(App.class);
     public static void main(String args[]) {
 		BufferedReader bf = new BufferedReader(
 										new InputStreamReader(System.in));
@@ -21,11 +24,9 @@ public class App {
 			System.out.print("Enter the bound: ");
 			bound = bf.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("Got problem with IO." + e);
         }
-		File file = new File(App.class.getClassLoader()
-											.getResource("MainFile.txt")
-												.getFile());
+		File file = new File("..\\data\\MainFile.txt");
 		FileAction.getInstance().writeData(
 				file, 
 				new DataGenerator().generate(Integer.parseInt(bound)));
@@ -33,10 +34,10 @@ public class App {
 		String loadedData = String.valueOf(data);
 		String[] splitedData = loadedData.split("[\n ,]");
 		BigDecimal[] numbers = NumberConverter.parseIntoNumbers(splitedData);
-		System.out.println("Array: " + Arrays.toString(numbers));
+		logger.info("Array: " + Arrays.toString(numbers));
 		BigDecimal sum = NumbersAction.getInstance().calculateSum(numbers);
-		System.out.println("sum: " + sum);
+		logger.info("sum: " + sum);
 		BigDecimal avg = NumbersAction.getInstance().calculateAvg(numbers);
-		System.out.println("average: " + avg);
+		logger.info("average: " + avg);
 	}
 }

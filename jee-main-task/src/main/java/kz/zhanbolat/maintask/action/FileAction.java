@@ -6,12 +6,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import org.apache.log4j.Logger;
+
 import kz.zhanbolat.maintask.exceptions.MemoryAllocationException;
-import kz.zhanbolat.maintask.reporter.ErrorReporter;
 import kz.zhanbolat.maintask.valid.MemoryValidator;
 
 public class FileAction {
-	
+	private static Logger logger = Logger.getLogger(FileAction.class);
 	private static FileAction fileAction;
 	public static final int MAX_SIZE_OF_DATA = 4096;
 	
@@ -38,17 +39,15 @@ public class FileAction {
 			}
 			reader.read(data);
 		} catch (IOException e) {
-			ErrorReporter.report("Got problem in reading file.");
-			e.printStackTrace();
+			logger.error("Got problem in reading file." + e);
 		} catch (MemoryAllocationException e) {
-			ErrorReporter.report("Got problem with allocating memory."
-					+ " Datas will be set to null");
-			e.printStackTrace();
+			logger.error("Got problem with allocating memory."
+					+ " Datas will be set to null." + e);
 		} finally {
 			try {
 				reader.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error("Got problem in closing stream." + e);
 			}
 		}
 		return data;
@@ -59,13 +58,12 @@ public class FileAction {
 			writer = new FileWriter(file.getPath().toString());
 			writer.write(data);
 		} catch (IOException e) {
-			ErrorReporter.report("Got problem in writing in the file");
-			e.printStackTrace();
+			logger.error("Got problem in writing in the file." + e);
 		} finally {
 			try {
 				writer.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error("Got problem in closing stream." + e);
 			}
 		}
 	}

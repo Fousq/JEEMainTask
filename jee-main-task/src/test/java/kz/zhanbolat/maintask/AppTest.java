@@ -1,33 +1,26 @@
 package kz.zhanbolat.maintask;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-
-import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.math.BigDecimal;
 
+import org.apache.log4j.Logger;
+import org.junit.Test;
+
 import kz.zhanbolat.maintask.action.FileAction;
 import kz.zhanbolat.maintask.action.NumbersAction;
-import kz.zhanbolat.maintask.valid.NumberValidator;
 import kz.zhanbolat.maintask.converter.NumberConverter;
+import kz.zhanbolat.maintask.valid.NumberValidator;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
-    
+    private static Logger logger = Logger.getLogger(AppTest.class);
     private File file;
-
-	@Test
-	public void getResourceTest() {
-		System.out.println("test");
-		System.out.println(getClass().getClassLoader()
-										.getResource("LoadingTestFile.txt")
-											.getFile());
-	}
 
 	@Test
 	public void testLoadData() {
@@ -36,9 +29,9 @@ public class AppTest {
 											.getFile());
 		char data[] = FileAction.getInstance().loadData(file.getPath());
 		String string = new String(data);
-		System.out.println(string);
-		System.out.println("String length: " + string.length());
-		System.out.println("Expected string length: "
+		logger.info(string);
+		logger.info("String length: " + string.length());
+		logger.info("Expected string length: "
 							+ "HELLO, WORLD!".length());
 		assertEquals("HELLO, WORLD!", string);
 	}
@@ -49,7 +42,6 @@ public class AppTest {
 		for (int i = 0; i < data.length; i++) {
 			data[i] = 'a';
 		}
-		System.out.println(data);
 		file = new File(getClass().getClassLoader()
 										.getResource("WritingTestFile.txt")
 											.getFile());
@@ -127,7 +119,7 @@ public class AppTest {
 		BigDecimal[] parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
 		BigDecimal sum = NumbersAction.getInstance()
 											.calculateSum(parsedNumbers);
-		System.out.println("Sum: " + sum);
+		logger.info("Sum: " + sum);
 	}
 	
 	@Test
@@ -136,7 +128,7 @@ public class AppTest {
 		BigDecimal[] parsedNumbers = NumberConverter.parseIntoNumbers(numbers);
 		BigDecimal avg = NumbersAction.getInstance()
 											.calculateAvg(parsedNumbers);
-		System.out.println("Avg: " + avg);
+		logger.info("Avg: " + avg);
 	}
 	
 }

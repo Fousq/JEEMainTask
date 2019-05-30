@@ -1,0 +1,24 @@
+2019-05-30 21:00:55 INFO  maintask.AppTest:32 - HELLO, WORLD!
+2019-05-30 21:00:55 INFO  maintask.AppTest:33 - String length: 13
+2019-05-30 21:00:55 INFO  maintask.AppTest:34 - Expected string length: 13
+2019-05-30 21:00:55 INFO  maintask.AppTest:45 - [C@23529fee
+2019-05-30 21:00:55 ERROR action.FileAction:44 - Got problem with allocating memory. Datas will be set to null.kz.zhanbolat.maintask.exceptions.MemoryAllocationException: Not enough memory to store data
+2019-05-30 21:01:14 INFO  maintask.AppTest:32 - HELLO, WORLD!
+2019-05-30 21:01:14 INFO  maintask.AppTest:33 - String length: 13
+2019-05-30 21:01:14 INFO  maintask.AppTest:34 - Expected string length: 13
+2019-05-30 21:01:14 INFO  maintask.AppTest:45 - [C@23529fee
+2019-05-30 21:01:14 ERROR action.FileAction:44 - Got problem with allocating memory. Datas will be set to null.kz.zhanbolat.maintask.exceptions.MemoryAllocationException: Not enough memory to store data
+2019-05-30 21:07:40 INFO  maintask.AppTest:32 - HELLO, WORLD!
+2019-05-30 21:07:40 INFO  maintask.AppTest:33 - String length: 13
+2019-05-30 21:07:40 INFO  maintask.AppTest:34 - Expected string length: 13
+2019-05-30 21:07:40 INFO  maintask.AppTest:132 - Avg: 1.0000
+2019-05-30 21:07:40 INFO  maintask.AppTest:45 - [C@4c15e7fd
+2019-05-30 21:07:40 ERROR action.FileAction:44 - Got problem with allocating memory. Datas will be set to null.kz.zhanbolat.maintask.exceptions.MemoryAllocationException: Not enough memory to store data
+2019-05-30 21:07:40 INFO  maintask.AppTest:123 - Sum: 1214141542147483649.235154325234
+2019-05-30 21:09:02 INFO  maintask.AppTest:32 - HELLO, WORLD!
+2019-05-30 21:09:02 INFO  maintask.AppTest:33 - String length: 13
+2019-05-30 21:09:02 INFO  maintask.AppTest:34 - Expected string length: 13
+2019-05-30 21:09:02 INFO  maintask.AppTest:132 - Avg: 1.0000
+2019-05-30 21:09:02 INFO  maintask.AppTest:45 - [C@4c15e7fd
+2019-05-30 21:09:02 ERROR action.FileAction:44 - Got problem with allocating memory. Datas will be set to null.kz.zhanbolat.maintask.exceptions.MemoryAllocationException: Not enough memory to store data
+2019-05-30 21:09:02 INFO  maintask.AppTest:123 - Sum: 1214141542147483649.235154325234
