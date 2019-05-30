@@ -26,9 +26,9 @@ public class App {
 		} catch (IOException e) {
 			logger.error("Got problem with IO." + e);
         }
-		File file = new File("..\\data\\MainFile.txt");
+		File file = new File("..//jee-main-task//data//MainFile.txt");
 		FileAction.getInstance().writeData(
-				file, 
+				file,
 				new DataGenerator().generate(Integer.parseInt(bound)));
 		char[] data = FileAction.getInstance().loadData(file.getPath());
 		String loadedData = String.valueOf(data);
